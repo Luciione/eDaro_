@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>School Form</title>
+</head>
+
+<body>
+    <h1>Create/Edit School</h1>
+    <form method="post" action="{{ url_for('create_school') }}">
+        <label for="name">School Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        <button type="submit">Save School</button>
+    </form>
+</body>
+
+</html>

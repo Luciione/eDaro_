@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Drive List</title>
+</head>
+
+<body>
+    <h1>Drives</h1>
+    <ul>
+        {% for drive in drives %}
+            <li><a href="{{ url_for('drive_details', id=drive.id) }}">{{ drive.name }}</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('drive_form') }}">Create New Drive</a>
+</body>
+
+</html>

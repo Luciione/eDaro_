@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Assessment List</title>
+</head>
+
+<body>
+    <h1>Assessments</h1>
+    <ul>
+        {% for assessment in assessments %}
+            <li><a href="{{ url_for('assessment_details', id=assessment.id) }}">{{ assessment.name }}</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('assessment_form') }}">Create New Assessment</a>
+</body>
+
+</html>

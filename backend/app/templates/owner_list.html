@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Owner List</title>
+</head>
+
+<body>
+    <h1>Owners</h1>
+    <ul>
+        {% for owner in owners %}
+            <li><a href="{{ url_for('owner_details', id=owner.id) }}">{{ owner.name }}</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('owner_form') }}">Create New Owner</a>
+</body>
+
+</html>

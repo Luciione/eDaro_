@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Resource List</title>
+</head>
+
+<body>
+    <h1>Resources</h1>
+    <ul>
+        {% for resource in resources %}
+            <li><a href="{{ url_for('resource_details', id=resource.id) }}">{{ resource.name }}</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('resource_form') }}">Create New Resource</a>
+</body>
+
+</html>
