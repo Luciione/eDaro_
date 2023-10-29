@@ -8,7 +8,4 @@ class Room(db.Model):
     educator_id = db.Column(db.Integer, db.ForeignKey('educator.id'), nullable=False)
     student_id = db.Column(db.Integer, db.ForeignKey('student.id'), nullable=False)
     
-<<<<<<< HEAD
-=======
 
->>>>>>> 7050c94 ( Added Authentication, Fixed template error, Updated Templates)

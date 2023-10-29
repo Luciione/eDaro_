@@ -8,7 +8,4 @@ class Resource(db.Model):
     document = db.Column(db.String(255))  # Path to uploaded file
     instructions = db.Column(db.Text)
     
-<<<<<<< HEAD
-=======
 
->>>>>>> 7050c94 ( Added Authentication, Fixed template error, Updated Templates)

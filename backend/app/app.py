@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-=======
 # IMPORTS
 
->>>>>>> 7050c94 ( Added Authentication, Fixed template error, Updated Templates)
 from flask import Flask, render_template, request, redirect, url_for
 from flask_migrate import Migrate
 from models.db import db
@@ -16,27 +13,15 @@ from models.resource import db as resource_db
 from models.drive import db as drive_db
 from models.note import db as note_db
 from config import Config
-<<<<<<< HEAD
-
-app = Flask(_name_)
-=======
 from werkzeug.security import generate_password_hash, check_password_hash
 
 #Init
 
 app = Flask(__name__)
->>>>>>> 7050c94 ( Added Authentication, Fixed template error, Updated Templates)
 app.config.from_object(Config)
 db.init_app(app)
 migrate = Migrate(app, db)
 
-<<<<<<< HEAD
-@app.route('/')
-def index():
-    return render_template('/templates/index.html')
-
-# ROUTES
-=======
 
 # ROUTES
 
@@ -127,17 +112,10 @@ def approve_student(student_id):
     student.is_active = True
     db.session.commit()
     return redirect(url_for('owner_dashboard'))
->>>>>>> 7050c94 ( Added Authentication, Fixed template error, Updated Templates)
 @app.route('/owners/create', methods=['GET', 'POST'])
 def create_owner():
     if request.method == 'POST':
         # Process form data and create a new owner in the database
-<<<<<<< HEAD
-        return redirect(url_for('/templates/owner_list'))
-    return render_template('/templates/owner_form.html')
-
-#### List Owners:
-=======
         return redirect(url_for('owner_list'))
     return render_template('owner_form.html')
 
@@ -254,135 +232,6 @@ def create_note():
     return render_template('note_form.html')
 
 
->>>>>>> 7050c94 ( Added Authentication, Fixed template error, Updated Templates)
 
-
-@app.route('/owners')
-def owner_list():
-    owners = Owner.query.all()
-    return render_template('/templates/owner_list.html', owners=owners)
-
-@app.route('/schools/create', methods=['GET', 'POST'])
-def create_school():
-    if request.method == 'POST':
-        # Process form data and create a new school in the database
-        return redirect(url_for('/templates/school_list'))
-    return render_template('/templates/school_form.html')
-
-#### List Schools:
-
-
-@app.route('/schools')
-def school_list():
-    schools = School.query.all()
-    return render_template('/templates/school_list.html', schools=schools)
-
-@app.route('/educators/create', methods=['GET', 'POST'])
-def create_educator():
-    if request.method == 'POST':
-        # Process form data and create a new educator in the database
-        return redirect(url_for('/templates/educator_list'))
-    return render_template('/templates/educator_form.html')
-
-#### List Educators:
-
-
-@app.route('/educators')
-def educator_list():
-    educators = Educator.query.all()
-    return render_template('/templates/educator_list.html', educators=educators)
-
-@app.route('/students/create', methods=['GET', 'POST'])
-def create_student():
-    if request.method == 'POST':
-        # Process form data and create a new student in the database
-        return redirect(url_for('/templates/student_list'))
-    return render_template('/templates/student_form.html')
-
-#### List Students:
-
-
-@app.route('/students')
-def student_list():
-    students = Student.query.all()
-    return render_template('/templates/student_list.html', students=students)
-
-@app.route('/room/create', methods=['GET', 'POST'])
-def create_room():
-    if request.method == 'POST':
-        # Process form data and create a new room in the database
-        return redirect(url_for('/templates/room_list'))
-    return render_template('/templates/room_form.html')
-
-#### List room:
-
-
-@app.route('/room')
-def room_list():
-    room = room.query.all()
-    return render_template('/templates/room_list.html', room=room)
-
-@app.route('/assessments/create', methods=['GET', 'POST'])
-def create_assessment():
-    if request.method == 'POST':
-        # Process form data and create a new assessment in the database
-        return redirect(url_for('/templates/assessment_list'))
-    return render_template('/templates/assessment_form.html')
-
-#### List Assessments:
-
-
-@app.route('/assessments')
-def assessment_list():
-    assessments = Assessment.query.all()
-    return render_template('/templates/assessment_list.html', assessments=assessments)
-
-@app.route('/resources/create', methods=['GET', 'POST'])
-def create_resource():
-    if request.method == 'POST':
-        # Process form data and create a new resource in the database
-        return redirect(url_for('/templates/resource_list'))
-    return render_template('/templates/resource_form.html')
-
-#### List Resources:
-
-
-@app.route('/resources')
-def resource_list():
-    resources = Resource.query.all()
-    return render_template('/templates/resource_list.html', resources=resources)
-
-@app.route('/drives/create', methods=['GET', 'POST'])
-def create_drive():
-    if request.method == 'POST':
-        # Process form data and create a new drive in the database
-        return redirect(url_for('/templates/drive_list'))
-    return render_template('/templates/drive_form.html')
-
-#### List Drives:
-
-
-@app.route('/drives')
-def drive_list():
-    drives = Drive.query.all()
-    return render_template('/templates/drive_list.html', drives=drives)
-
-@app.route('/notes/create', methods=['GET', 'POST'])
-def create_note():
-    if request.method == 'POST':
-        # Process form data and create a new note in the database
-        return redirect(url_for('/templates/note_list'))
-    return render_template('/templates/note_form.html')
-
-#### List Notes:
-
-
-@app.route('/notes')
-def note_list():
-    notes = Note.query.all()
-    return render_template('/templates/note_list.html', notes=notes)
-
-
-
-if _name_ == '_main_':
+if __name__ == '__main__':
     app.run(debug=True)
